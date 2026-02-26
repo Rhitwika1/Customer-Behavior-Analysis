@@ -70,4 +70,14 @@ col1.metric("Total Customers", df["Customer ID"].nunique())
 col2.metric("Total Revenue", f"{df['Purchase Amount (USD)'].sum():,.2f}")
 col3.metric("Average Purchase", f"{df['Purchase Amount (USD)'].mean():,.2f}")
 
-st.success("Project developed by Rhitwika")
+
+# Download PBIX file
+st.subheader("Download Power BI Dashboard")
+
+with open("customer_behavior_dashboard.pbix", "rb") as file:
+    st.download_button(
+        label="Download Power BI Dashboard (.pbix)",
+        data=file,
+        file_name="customer_behavior_dashboard.pbix",
+        mime="application/octet-stream"
+    )
